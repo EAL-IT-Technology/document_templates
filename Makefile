@@ -1,10 +1,19 @@
-TEMPLATE:=template/template.tex
+all: test.pdf test-notoc.pdf
 
-test.pdf: test.md $(TEMPLATE)
+test.pdf: test.md template/template.tex
 	pandoc                          \
 	  --from         markdown       \
 	  --to           latex          \
-	  --template     $(TEMPLATE)   \
+	  --template     template/template.tex   \
 	  --out          test.pdf \
+	  --latex-engine xelatex        \
+	  test.md
+
+test-notoc.pdf: test.md template/template-notoc.tex
+	pandoc                          \
+	  --from         markdown       \
+	  --to           latex          \
+	  --template     template/template-notoc.tex   \
+	  --out          test-notoc.pdf \
 	  --latex-engine xelatex        \
 	  test.md
