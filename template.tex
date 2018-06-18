@@ -32,6 +32,10 @@
             urlcolor=blue,
             linkcolor=black]{hyperref}
 
+% for positioning graphics on the front page
+\usepackage{tikzpagenodes}
+
+% setting the default font
 \usepackage{fontspec}
 \setmainfont{FreeSans}
 
@@ -55,7 +59,6 @@
 % Required for syntax highlighting
 $highlighting-macros$
 
-
 % Don't let images overflow the page
 % Can still explicit set width/height/options for an image
 \makeatletter
@@ -64,14 +67,11 @@ $highlighting-macros$
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
-
 % Make links footnotes instead of hotlinks
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
-
 % Avoid problems with \sout in headers with hyperref:
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-
 
 % No paragraph indentation
 % and set space between paragraphs
@@ -87,7 +87,6 @@ $highlighting-macros$
   \csname the#1\endcsname\quad
   \fi}
 \makeatother
-
 
 %
 % TOC depth and
@@ -105,6 +104,18 @@ $endif$
 
 \thispagestyle{empty}
 
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}]
+  \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=3cm]{template/eal-logo-white.jpg}};
+\end{tikzpicture}
+
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.south)}]
+  \node[anchor=south,xshift=0cm,yshift=1cm]{\includegraphics[height=1cm,width=19cm]{template/bottom-streamer.jpg}};
+\end{tikzpicture}
+
+%\begin{flushright}
+%    \includegraphics[height=3cm]{template/eal-logo-white.jpg}\\
+%\end{flushright}
+
 \begin{center}
   \hfill \break%
   \vfill
@@ -112,21 +123,23 @@ $endif$
   $if(subtitle)$\Large{$subtitle$}\\[0.5em]$endif$
 \end{center}
 
-
 \begin{flushright}
-    \vspace{8cm}\includegraphics[width=3cm, height=3cm]{eal-logo}\\
+    \vspace{8cm}
     $if(institution)${$institution$}\\$endif$
     \vspace{1cm}\large{Authors:}\\
     $if(authors)$\small{$authors$}\\$endif$
      \vspace{1cm}\textbf{{$date$}}\\
 \end{flushright}
 
+% page with TOC
 \newpage
 \thispagestyle{empty}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \tableofcontents
+
+% normal content
 \newpage
 
 $body$
