@@ -32,6 +32,14 @@
             urlcolor=blue,
             linkcolor=black]{hyperref}
 
+% page size and margins
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  left=20mm, right=20mm,
+  top=28mm, bottom=28mm
+}
+
 % for positioning graphics on the front page
 \usepackage{tikzpagenodes}
 
@@ -111,10 +119,6 @@ $endif$
 \begin{tikzpicture}[remember picture,overlay,shift={(current page.south)}]
   \node[anchor=south,xshift=0cm,yshift=1cm]{\includegraphics[height=1cm,width=19cm]{template/bottom-streamer.jpg}};
 \end{tikzpicture}
-
-%\begin{flushright}
-%    \includegraphics[height=3cm]{template/eal-logo-white.jpg}\\
-%\end{flushright}
 
 \begin{center}
   \hfill \break%
