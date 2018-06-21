@@ -61,8 +61,8 @@
 \rhead{$right-header$}
 
 \fancyfoot[L]{$email$}
-\fancyfoot[C]{$if(main_author)${$main_author$}$endif$}
-\fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\fancyfoot[C]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\fancyfoot[R]{$if(main_author)${$main_author$}$endif$}
 
 % Required for syntax highlighting
 $highlighting-macros$
@@ -140,6 +140,7 @@ $endif$
 
 % normal content
 \newpage
+\setcounter{page}{1}
 
 $body$
 
