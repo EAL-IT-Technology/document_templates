@@ -14,3 +14,14 @@ skip-toc: false
 # Introduction
 
 A simple document to test templates. Should be expanded to show how all markdown renders...
+
+And a footnote ^[school link: [http://eal.dk](http://eal.dk)]
+
+This is a list
+
+* A
+* B
+    * sub B
+* C
+
+and some more text.
