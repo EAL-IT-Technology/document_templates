@@ -135,13 +135,21 @@ $endif$
      \vspace{1cm}\textbf{{$date$}}\\
 \end{flushright}
 
+$if(skip-toc)$
+% no page with TOC
+%   'śkip-toc' is set
+$else$
 % page with TOC
+%   'śkip-toc' is not set
 \newpage
 \thispagestyle{empty}
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \tableofcontents
+
+$endif$
+
 
 % normal content
 \newpage
