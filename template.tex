@@ -87,23 +87,12 @@ $highlighting-macros$
 \setlength{\parskip}{1em plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
-
-% No section numbering
-\makeatletter
-\def\@seccntformat#1{%
-  \expandafter\ifx\csname c@#1\endcsname\c@section\else
-  \csname the#1\endcsname\quad
-  \fi}
-\makeatother
-
 %
 % TOC depth and
 % section numbering depth
 %
 \setcounter{tocdepth}{3}
-$if(numbersections)$
 \setcounter{secnumdepth}{3}
-$endif$
 
 % -----------------
 %  END OF PREAMBLE
@@ -144,8 +133,6 @@ $else$
 \newpage
 \thispagestyle{empty}
 
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
 \tableofcontents
 
 $endif$
