@@ -8,6 +8,7 @@ institution: Lillebealt Academy
 email: 'test@example.com'
 left-header: \today
 right-header: Template test
+skip-toc: false
 ---
 
 # Introduction

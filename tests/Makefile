@@ -9,11 +9,12 @@ test.pdf: test.md template/template.tex
 	  --latex-engine xelatex        \
 	  test.md
 
-test-notoc.pdf: test.md template/template-notoc.tex
+test-notoc.pdf: test.md template/template.tex
 	pandoc                          \
 	  --from         markdown       \
 	  --to           latex          \
-	  --template     template/template-notoc.tex   \
+	  --template     template/template.tex   \
 	  --out          test-notoc.pdf \
 	  --latex-engine xelatex        \
+          --variable="skip-toc=true"   \
 	  test.md
