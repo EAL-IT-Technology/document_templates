@@ -12,7 +12,7 @@
 
 
 % Packages
-\usepackage{fontspec}
+%\usepackage{fontspec}
 \usepackage{eurosym}
 \usepackage{amssymb}
 \usepackage{mathtools}
@@ -48,8 +48,8 @@
 \usepackage{tikzpagenodes}
 
 % setting the default font
-\usepackage{fontspec}
-\setmainfont{FreeSans}
+%\usepackage{fontspec}
+%\setmainfont{FreeSans}
 
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{--}
@@ -125,7 +125,9 @@ $highlighting-macros$
     $if(institution)${$institution$}\\$endif$
     $if(authors)$
         \vspace{1cm}\large{Authors:}\\
+	$for(authors)$
         \small{$authors$}\\
+	$endfor$
     $endif$
     $if(main_author)$
         \vspace{1cm}\large{Contact:}\\

@@ -5,8 +5,8 @@ test.pdf: test.md template/template.tex
 	  --from         markdown       \
 	  --to           latex          \
 	  --template     template/template.tex   \
-	  --out          test.pdf \
-	  --latex-engine xelatex        \
+	  --out          test.pdf       \
+	  --pdf-engine   pdflatex       \
 	  test.md
 
 test-notoc.pdf: test.md template/template.tex
@@ -15,6 +15,6 @@ test-notoc.pdf: test.md template/template.tex
 	  --to           latex          \
 	  --template     template/template.tex   \
 	  --out          test-notoc.pdf \
-	  --latex-engine xelatex        \
-          --variable="skip-toc=true"   \
+	  --pdf-engine pdflatex         \
+	  --variable="skip-toc=true"    \
 	  test.md
