@@ -1,8 +1,8 @@
 ---
 title: 'Template test'
 subtitle: 'Markdown + Latex + pandoc'
-authors: 'Martin Grønholdt'
-main_author: 'Martin Grønholdt'
+authors: ['Author Name 1', 'Author Name 2']
+main_author: 'Author Name 1'
 date: \today
 institution: Lillebealt Academy
 email: 'test@example.com'
