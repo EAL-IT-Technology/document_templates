@@ -3,8 +3,7 @@ GIT_DATE := $(shell date -d $$(date -d @$$(git log -1 --format=%ct) +"%Y%m%d") +
 all: test.pdf test-notoc.pdf
 
 test.pdf: test.md template/template.tex
-	SOURCE_DATE_EPOCH_TEX_PRIMITIVES=1 
-	SOURCE_DATE_EPOCH=$(GIT_DATE)  \
+	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
 	pandoc                          \
 	  --from         markdown       \
 	  --to           latex          \
@@ -14,8 +13,7 @@ test.pdf: test.md template/template.tex
 	  test.md
 
 test-notoc.pdf: test.md template/template.tex
-	SOURCE_DATE_EPOCH_TEX_PRIMITIVES=1 
-	SOURCE_DATE_EPOCH=$(GIT_DATE)  \
+	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
 	pandoc                          \
 	  --from         markdown       \
 	  --to           latex          \
