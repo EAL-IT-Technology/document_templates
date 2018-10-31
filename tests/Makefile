@@ -22,3 +22,24 @@ test-notoc.pdf: test.md template/template.tex
 	  --pdf-engine pdflatex         \
 	  --variable="skip-toc=true"    \
 	  test.md
+
+tex-only: test.tex test-notoc.tex
+
+test.tex: test.md template/template.tex
+	pandoc                          \
+	  --from         markdown       \
+	  --to           latex          \
+	  --template     template/template.tex   \
+	  --out          test.tex       \
+	  test.md
+
+test-notoc.tex: test.md template/template.tex
+	pandoc                          \
+	  --from         markdown       \
+	  --to           latex          \
+	  --template     template/template.tex   \
+	  --out          test-notoc.tex \
+	  --variable="skip-toc=true"    \
+	  test.md
+
+
