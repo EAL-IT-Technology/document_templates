@@ -4,20 +4,12 @@ generating pdfs
 
 clone the repo to a folder called `template`.
 
-run the following command
+To run the tests, run the following command
 
 ```
-cd test
-
-pandoc                          \
-  --from         markdown       \
-  --to           latex          \
-  --template     template/template.tex   \
-  --out          test.pdf \
-  --latex-engine xelatex        \
-  test.md
-
+cd tests
+make
 ```
 
-replace with your own .md and .pdf file name
+See the [Makefile]for how to build.
 
