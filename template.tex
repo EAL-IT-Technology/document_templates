@@ -122,7 +122,11 @@ $highlighting-macros$
 
 \begin{flushright}
     \vspace{8cm}
-    $if(institution)${$institution$}\\$endif$
+    $if(institution)$
+        \Large{$institution$}\\
+    $else$
+        \Large{UCL University college}\\
+    $endif$
     $if(authors)$
         \vspace{1cm}\large{Authors:}\\
 	$for(authors)$
