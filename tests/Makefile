@@ -1,6 +1,6 @@
 GIT_DATE := $(shell date -d $$(date -d @$$(git log -1 --format=%ct) +"%Y%m%d") +%s)
 
-all: test.pdf test-notoc.pdf
+all: test.pdf test-notoc.pdf tex-oldpdflatex.pdf
 
 test.pdf: test.md template/template.tex
 	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
@@ -23,7 +23,18 @@ test-notoc.pdf: test.md template/template.tex
 	  --variable="skip-toc=true"    \
 	  test.md
 
-tex-only: test.tex test-notoc.tex
+test-oldpdflatex.pdf: test.md template/template.tex
+	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
+	pandoc                          \
+	  --from         markdown       \
+	  --to           latex          \
+	  --template     template/template.tex   \
+	  --out          test-noldpdflatex.pdf \
+	  --pdf-engine pdflatex         \
+	  --variable="old-pdflatex=true"    \
+	  test.md
+
+tex-only: test.tex test-notoc.tex test-oldpdflatex.tex
 
 test.tex: test.md template/template.tex
 	pandoc                          \
@@ -42,4 +53,13 @@ test-notoc.tex: test.md template/template.tex
 	  --variable="skip-toc=true"    \
 	  test.md
 
+test-oldpdflatex.tex: test.md template/template.tex
+	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
+	pandoc                          \
+	  --from         markdown       \
+	  --to           latex          \
+	  --template     template/template.tex   \
+	  --out          test-noldpdflatex.tex \
+	  --variable="old-pdflatex=true"    \
+	  test.md
 

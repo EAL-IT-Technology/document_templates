@@ -47,9 +47,13 @@
 % for positioning graphics on the front page
 \usepackage{tikzpagenodes}
 
-% setting the default font
+$if(old-pdflatex)$
+% pdflatex before 1.40.17 doesn't support \pdftrailerid and reproducability
+% like on ubuntu 14.04lts on travis-ci...
+$else$
 \pdftrailerid{}
 \pdfsuppressptexinfo15
+$endif$
 
 \usepackage[yyyymmdd]{datetime}
 \renewcommand{\dateseparator}{--}
