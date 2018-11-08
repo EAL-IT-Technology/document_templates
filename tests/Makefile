@@ -1,6 +1,6 @@
 GIT_DATE := $(shell date -d $$(date -d @$$(git log -1 --format=%ct) +"%Y%m%d") +%s)
 
-all: test.pdf test-notoc.pdf tex-oldpdflatex.pdf
+all: test.pdf test-notoc.pdf test-oldpdflatex.pdf
 
 test.pdf: test.md template/template.tex
 	SOURCE_DATE_EPOCH=$(GIT_DATE)   \
@@ -62,4 +62,3 @@ test-oldpdflatex.tex: test.md template/template.tex
 	  --out          test-noldpdflatex.tex \
 	  --variable="old-pdflatex=true"    \
 	  test.md
-
