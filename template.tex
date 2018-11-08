@@ -109,14 +109,17 @@ $highlighting-macros$
 
 \thispagestyle{empty}
 
+% Top logo graphics
 \begin{tikzpicture}[remember picture,overlay,shift={(current page.north east)}]
   \node[anchor=north east,xshift=-1cm,yshift=-1cm]{\includegraphics[width=5cm]{template/ucl-logo.png}};
 \end{tikzpicture}
 
-% to be reenabled when we have the graphics
-%\begin{tikzpicture}[remember picture,overlay,shift={(current page.south)}]
-%  \node[anchor=south,xshift=0cm,yshift=1cm]{\includegraphics[height=1cm,width=19cm]{template/bottom-streamer.jpg}};
-%\end{tikzpicture}
+% Bottom streamer graphics
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.south east)}]
+  \node[anchor=south east,xshift=-1cm,yshift=1cm]{
+    \includegraphics[height=1cm]{template/ucl-bottom-streamer.png}
+  };
+\end{tikzpicture}
 
 \begin{center}
   \hfill \break%
@@ -145,22 +148,23 @@ $highlighting-macros$
      \vspace{1cm}\textbf{{$date$}}\\
 \end{flushright}
 
+% end of front page
+\newpage
+
 $if(skip-toc)$
 % no page with TOC
 %   'śkip-toc' is set
 $else$
 % page with TOC
-%   'śkip-toc' is not set
-\newpage
+%   'skip-toc' is not set
 \thispagestyle{empty}
 
 \tableofcontents
+\newpage
 
 $endif$
 
-
 % normal content
-\newpage
 \setcounter{page}{1}
 
 $body$
