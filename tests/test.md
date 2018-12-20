@@ -28,6 +28,10 @@ and some more text.
 
 And this is a really really long line with lots of text and blabla to ensure that must be doing a certain amount of line wrapping. That was a lot.
 
+# How does it handle strange characters?
+
+* Danish letters: >æøåÆØÅ<
+* Accents: >êéè<
 
 # A bit about the preamble options
 
